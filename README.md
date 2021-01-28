@@ -2,7 +2,7 @@
 Vodafone Red Academy - Ansible Course
 
     [Setup]
-    - git clone https://github.com/vodafone-tr/ansible.git
+    - git clone https://github.com/redacademy-vodafone/ansible.git
     - cd ansible
     - python3 -m venv VENV
     - source VENV/bin/activate
