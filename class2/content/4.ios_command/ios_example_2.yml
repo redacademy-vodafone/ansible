@@ -1,0 +1,5 @@
+---
+- name: IOS Example
+  hosts: cisco1:cisco3
+  tasks:
+    - ios_facts:

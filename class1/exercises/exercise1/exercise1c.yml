@@ -1,0 +1,7 @@
+---
+rtr1:
+  host: cisco1
+  username: vodafone
+  password: ansible@123
+  device_type: cisco_ios
+  use_session_log: False

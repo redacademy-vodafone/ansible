@@ -1,0 +1,14 @@
+- name: Interface configuration
+  hosts: arista2
+  gather_facts: False
+  tasks:
+    - name: Update l2 interface config
+      eos_l2_interfaces:
+        config:
+          - name: Ethernet2
+            access:
+              vlan: 20
+          - name: Ethernet3
+            trunk:
+              native_vlan: 7
+        state: merged

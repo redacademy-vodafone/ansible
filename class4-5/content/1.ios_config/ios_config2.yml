@@ -1,0 +1,13 @@
+---
+- name: IOS Example2
+  hosts: cisco1
+  gather_facts: False
+  tasks:
+    - name: Global config
+      ios_config:
+        lines:
+          - "ip domain name {{ domain_name }}"
+          - "ntp server {{ ntp_server1 }}"
+          - "ntp server {{ ntp_server2 }}"
+        save_when: changed #copy running config to startup config
+        backup: True #it takes backup before the configuration.

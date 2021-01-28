@@ -1,0 +1,15 @@
+---
+- name: EOS Example
+  gather_facts: False
+  hosts: arista1:arista2
+
+  tasks:
+    - name: "Show command (list of commands)"
+      eos_command:
+        commands: 
+          - show interfaces
+          - show arp
+      register: output
+
+    - debug:
+        var: output

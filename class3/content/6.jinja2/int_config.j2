@@ -1,0 +1,6 @@
+{% for interface in cisco_interfaces %}
+interface {{ interface }}
+ description TEST_ANSIBLE
+ no shut
+!
+{% endfor %}

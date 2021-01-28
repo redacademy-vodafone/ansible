@@ -1,0 +1,15 @@
+---
+- name: IOS Example
+  hosts: cisco1:cisco3
+  gather_facts: False
+  tasks:
+    - ios_facts:
+
+    - debug:
+        var: ansible_net_model
+
+    - debug:
+        msg:
+          - "{{ ansible_net_serialnum }}"
+          - "{{ ansible_net_system }}"
+          - "{{ ansible_net_version }}"

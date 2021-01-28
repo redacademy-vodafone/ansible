@@ -1,0 +1,22 @@
+---
+- name: IOS Example1
+  hosts: cisco1 #:arista1
+  gather_facts: True
+  tasks:
+    - name: Global config
+      ios_config:
+        src: ios_config.txt
+        save_when: changed
+        diff_against: running
+      when: ansible_facts.net_iostype == "IOSv"
+
+    - name: EOS global config
+      eos_config:
+        lines:
+          - "ip name-server {{ dns_server1 }}"
+          - "ip name-server {{ dns_server2 }}"
+          - "ip domain-name {{ domain_name }}"
+          - "ntp server {{ ntp_server1 }}"
+          - "ntp server {{ ntp_server2 }}"
+        save_when: changed
+      when: 'ansible_network_os == "eos"'

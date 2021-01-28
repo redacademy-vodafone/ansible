@@ -1,0 +1,6 @@
+---
+- name: EOS Example
+  hosts: arista1
+  gather_facts: False
+  tasks:
+    - eos_facts:

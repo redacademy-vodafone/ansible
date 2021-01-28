@@ -1,0 +1,17 @@
+- name: Show interface configuration
+  hosts: cisco1
+  gather_facts: False
+  tasks:
+    - name: Show interface config (ios)
+      ios_command:
+        commands:
+          - show run int GigabitEthernet0/1
+      register: output
+      tags: ios
+      when: "ansible_network_os == 'ios'"
+
+    - debug:
+        var: output["stdout_lines"]
+      tags: ios
+      when: "ansible_network_os == 'ios'"
+

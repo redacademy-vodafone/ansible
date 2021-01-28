@@ -1,0 +1,14 @@
+---
+- name: Verify config changes
+  hosts: cisco1
+  gather_facts: False
+  tasks:
+    - ios_command:
+        #commands: "show run | inc domain"
+        commands: 
+          - "show run | inc name-server"
+          - "show run | inc ntp"
+      register: output
+
+    - debug:
+        var: output

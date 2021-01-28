@@ -1,0 +1,12 @@
+---
+- name: Exercise 1a
+  hosts: arista1
+  gather_facts: True
+  tasks:
+    - name: Print arista1 ansible_facts
+      debug:
+        var: ansible_facts
+
+    - name: Print arista1 net_all_ipv4_addresses
+      debug:
+        var: net_all_ipv4_addresses

@@ -1,0 +1,17 @@
+---
+- name: EOS Example
+  gather_facts: False
+  hosts: arista
+
+  tasks:
+    - name: SSH Fact Gathering
+      eos_facts:
+
+    - name: Execute Show Command
+      eos_command:
+        commands: show arp
+      register: output
+
+    - name: Debug fact
+      debug:
+        msg: "{{ output }}"

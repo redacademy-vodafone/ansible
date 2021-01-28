@@ -1,0 +1,16 @@
+- name: Show interface configuration
+  hosts: arista2
+  gather_facts: False
+  tasks:
+    - name: Show interface config (eos)
+      eos_command:
+        commands:
+          - show run int Ethernet2
+      register: output
+      tags: eos
+      when: "ansible_network_os == 'eos'"
+
+    - debug:
+        var: output["stdout_lines"]
+      tags: eos
+      when: "ansible_network_os == 'eos'"
