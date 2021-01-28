@@ -29,3 +29,14 @@ Vodafone Red Academy - Ansible Course
       no shut
       end
       write
+    
+    [VPN]
+    [Interface]
+    PrivateKey = cO1V/yom3iVziqEDd8SvSgEKOlI7fhQPcUTsoiQyT3A=
+    Address = 172.16.253.2/24
+
+    [Peer]
+    PublicKey = 
+    AllowedIPs = 172.16.253.0/24
+    Endpoint = redacademy.duckdns.org:51820
+    PersistentKeepalive = 25
